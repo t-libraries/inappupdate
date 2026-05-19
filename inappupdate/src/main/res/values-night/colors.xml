@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="iau_black">#000000</color>
+    <color name="iau_white">#ffffff</color>
+    <color name="iau_textcolor">#ffffff</color>
+    <color name="iau_dialogbg">#282828</color>
+    <color name="iau_toptextcolor">#898989</color>
+    <color name="iau_notificationcolor">#404040</color>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="iau_UpdateDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowAnimationStyle">@style/iau_UpdateDialogAnimation</item>
+    </style>
+
+    <style name="iau_UpdateDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/iau_dialog_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/iau_dialog_slide_down</item>
+    </style>
+
+    <style name="iau_BottomDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/iau_dialog_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/iau_dialog_slide_down</item>
+    </style>
+
+    <style name="iau_Theme.InAppUpdate.Transparent" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+</resources>

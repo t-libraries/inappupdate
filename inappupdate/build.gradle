@@ -1,0 +1,119 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.tlib.inappupdate'
+    compileSdk {
+        version = release(36)
+    }
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    lintOptions {
+        resourcePrefix 'iau_'
+    }
+
+}
+
+
+ext {
+    PUBLISH_GROUP_ID = "com.tlib.inappupdate"
+    PUBLISH_VERSION = "v1.0.0"
+    PUBLISH_ARTIFACT_ID = "inappupdate"
+    PUBLISH_DESCRIPTION = "An android gradle plugin for InAppUpdate"
+    PUBLISH_URL = "https://github.com/t-libraries/inappupdate"
+    PUBLISH_LICENSE_NAME = "Apache 2.0 License"
+    PUBLISH_LICENSE_URL = "https://www.apache.org/licenses/LICENSE-2.0"
+    PUBLISH_DEVELOPER_ID = "t-libraries"
+    PUBLISH_DEVELOPER_NAME = "t-libraries"
+    PUBLISH_DEVELOPER_EMAIL = "mailto:developerresource@technest.pk"
+    PUBLISH_SCM_CONNECTION = "scm:git:ssh://github.com/t-libraries/t-libraries/inappupdate.git"
+    PUBLISH_SCM_DEVELOPER_CONNECTION = "scm:git:ssh://github.com/t-libraries/inappupdate.git"
+    PUBLISH_SCM_URL = "https://github.com/t-libraries/inappupdate"
+}
+
+
+version = project.ext.PUBLISH_VERSION
+group = project.ext.PUBLISH_GROUP_ID
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.findByName("release")
+
+                groupId = project.ext.PUBLISH_GROUP_ID
+                artifactId = project.ext.PUBLISH_ARTIFACT_ID
+                version = project.ext.PUBLISH_VERSION
+
+                pom {
+                    name.set(project.ext.PUBLISH_ARTIFACT_ID)
+                    description.set(project.ext.PUBLISH_DESCRIPTION)
+                    url.set(project.ext.PUBLISH_URL)
+
+                    licenses {
+                        license {
+                            name.set(project.ext.PUBLISH_LICENSE_NAME)
+                            url.set(project.ext.PUBLISH_LICENSE_URL)
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id.set(project.ext.PUBLISH_DEVELOPER_ID)
+                            name.set(project.ext.PUBLISH_DEVELOPER_NAME)
+                            email.set(project.ext.PUBLISH_DEVELOPER_EMAIL)
+                        }
+                    }
+
+                    scm {
+                        connection.set(project.ext.PUBLISH_SCM_CONNECTION)
+                        developerConnection.set(project.ext.PUBLISH_SCM_DEVELOPER_CONNECTION)
+                        url.set(project.ext.PUBLISH_SCM_URL)
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation libs.androidx.activity.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.core.ktx
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.espresso.core
+    androidTestImplementation libs.androidx.junit
+    implementation(libs.app.update)
+    implementation(libs.app.update.ktx)
+
+    //sdp
+    implementation libs.sdp.android
+
+}

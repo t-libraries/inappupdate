@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_18sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_15sdp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="New Version is Ready 🚀"
+            android:textColor="@color/iau_textcolor"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/urbanist_bold" />
+
+        <TextView
+            android:id="@+id/btnInstall"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/iau_bg_notification_button"
+            android:gravity="center"
+            android:text="INSTALL"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/urbanist_bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

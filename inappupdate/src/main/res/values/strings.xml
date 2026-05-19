@@ -1,0 +1,19 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="iau_99"><![CDATA[
+✨ <font color="#0FB32D">99%</font>
+<font color="@color/iau_toptextcolor"> users already love the upgrade!<br/>
+Now it’s your turn to experience the change.</font>
+]]></string>
+
+    <string name="iau_latest_version"><![CDATA[
+The <font color="#0FB32D">latest version</font>
+<font color="@color/iau_toptextcolor"> has been downloaded successfully.<br/>
+Restart now to enjoy the improvements and new features.</font>
+]]></string>
+
+    <string name="iau_update_text"><![CDATA[
+👉 <font size="13dp">Tap Update</font>
+<font size="11dp"> and enjoy the latest version today!</font>
+]]></string>
+</resources>
