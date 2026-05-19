@@ -5,15 +5,17 @@ plugins {
 
 android {
     namespace 'com.tlib.inappupdate'
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk 36
 
     defaultConfig {
         minSdk 24
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+    }
+
+    publishing {
+        singleVariant("release")
     }
 
     buildTypes {
@@ -51,7 +53,7 @@ ext {
     PUBLISH_DEVELOPER_ID = "t-libraries"
     PUBLISH_DEVELOPER_NAME = "t-libraries"
     PUBLISH_DEVELOPER_EMAIL = "mailto:developerresource@technest.pk"
-    PUBLISH_SCM_CONNECTION = "scm:git:ssh://github.com/t-libraries/t-libraries/inappupdate.git"
+    PUBLISH_SCM_CONNECTION = "scm:git:https://github.com/t-libraries/inappupdate.git"
     PUBLISH_SCM_DEVELOPER_CONNECTION = "scm:git:ssh://github.com/t-libraries/inappupdate.git"
     PUBLISH_SCM_URL = "https://github.com/t-libraries/inappupdate"
 }
@@ -63,13 +65,16 @@ group = project.ext.PUBLISH_GROUP_ID
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                from components.findByName("release")
+            // Creates a Maven publication called "release".
+            create("release", MavenPublication) {
+                from components["release"]
 
+                // Use the properties from the `ext` block
                 groupId = project.ext.PUBLISH_GROUP_ID
                 artifactId = project.ext.PUBLISH_ARTIFACT_ID
                 version = project.ext.PUBLISH_VERSION
 
+                // Add additional metadata to the POM
                 pom {
                     name.set(project.ext.PUBLISH_ARTIFACT_ID)
                     description.set(project.ext.PUBLISH_DESCRIPTION)
